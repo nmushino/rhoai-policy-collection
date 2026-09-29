@@ -26,11 +26,11 @@ spec:
         server: "{{.server}}"
         namespace: redhat-ods-operator
       source:
-        repoURL: https://github.com/eformat/rhoai-policy-collection.git
+        repoURL: https://github.com/nmushino/rhoai-policy-collection.git
         path: gitops/applications/rhoai/overlay
         plugin:
           name: argocd-novault-plugin-kustomize
-        targetRevision: main
+        targetRevision: rhoai-3.5-servicemesh3
       syncPolicy:
         automated:
           prune: false
