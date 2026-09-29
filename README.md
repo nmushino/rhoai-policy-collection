@@ -17,7 +17,7 @@ OpenShift Cluster with cluster-admin access. See [SNO on SPOT](https://github.co
 ```bash
 export INSTANCE_TYPE=g6.8xlarge
 export ROOT_VOLUME_SIZE=400
-export OPENSHIFT_VERSION=4.18.14
+export OPENSHIFT_VERSION=stable-4.21
 ```
 
 ## Bootstrap
