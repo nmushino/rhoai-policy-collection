@@ -1,5 +1,5 @@
 ---
-apiVersion: datasciencecluster.opendatahub.io/v1
+apiVersion: datasciencecluster.opendatahub.io/v2
 kind: DataScienceCluster
 metadata:
   name: default-dsc
@@ -9,31 +9,42 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   components:
-    codeflare:
+    aigateway:
+      managementState: Removed
+      batchGateway:
+        managementState: Removed
+    aipipelines:
       managementState: Managed
     dashboard:
       managementState: Managed
-    datasciencepipelines:
-      managementState: Managed
+    feastoperator:
+      managementState: Removed
     kserve:
       managementState: Managed
-      serving:
-        ingressGateway:
-          certificate:
-            secretName: tls-apps
-            # type: Provided
-            type: SelfSigned
-        managementState: Managed
-        name: knative-serving
+      modelsAsService:
+        managementState: Removed
+      nim:
+        managementState: Removed
+      wva:
+        managementState: Removed
     kueue:
       managementState: Managed
-    modelmeshserving:
-      managementState: Managed
+    llamastackoperator:
+      managementState: Removed
+    mcplifecycleoperator:
+      managementState: Removed
+    mlflowoperator:
+      managementState: Removed
     modelregistry:
       managementState: Managed
+      registriesNamespace: rhoai-model-registries
+    ogx:
+      managementState: Removed
     ray:
       managementState: Managed
-    trainingoperator:
+    sparkoperator:
+      managementState: Removed
+    trainer:
       managementState: Managed
     trustyai:
       managementState: Managed

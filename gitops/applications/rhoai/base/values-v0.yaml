@@ -6,8 +6,8 @@ operators:
       name: redhat-ods-operator
       create: true
       global: true
-    channels: [fast] # v0,1
-    version: "2.19.0" # v1
+    channels: [stable-3.5] # v0,1
+    version: "3.5.1" # v1
     catalog: openshift-redhat-operators #v1
     source: redhat-operators # v0
     sourceNamespace: openshift-marketplace # v0
@@ -51,13 +51,26 @@ operators:
     sourceNamespace: openshift-marketplace # v0
     enabled: true
 
-  # servicemesh
+  # servicemesh (classic v2, disabled - RHOAI 3.5 requires Service Mesh 3)
   - name: servicemeshoperator
     namespace:
       name: openshift-operators
       create: false
     channels: [stable] # v0,1
     version: "2.6.7-0" # v1
+    catalog: openshift-redhat-operators #v1
+    source: redhat-operators # v0
+    sourceNamespace: openshift-marketplace # v0
+    enabled: false
+
+  # servicemesh3 (sail-based, required by RHOAI 3.5)
+  - name: servicemeshoperator3
+    namespace:
+      name: openshift-operators
+      create: false
+      global: true
+    channels: [stable] # v0,1
+    version: "3.4.2" # v1
     catalog: openshift-redhat-operators #v1
     source: redhat-operators # v0
     sourceNamespace: openshift-marketplace # v0
